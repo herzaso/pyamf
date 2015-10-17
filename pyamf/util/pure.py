@@ -13,13 +13,26 @@ Do not reference directly, use L{pyamf.util.BufferedByteStream} instead.
 
 import struct
 
-for module in [cStringIO, StringIO, io]:
+while True:
     try:
-        from module import StringIO
-    except ImportError:
+        from cStringIO import StringIO
+        break
+    except:
         pass
-    else:
-        break 
+
+    try:
+        from StringIO import StringIO
+        break
+    except:
+        pass
+
+    try:
+        from io import StringIO
+        break
+    except:
+        pass
+
+    raise ImportError('Couldn\'t import StringIO from cStringIO, StringIO or io')
 
 from pyamf import python
 
