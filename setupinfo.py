@@ -292,7 +292,7 @@ def get_trove_classifiers():
         else:
             return 'Development Status :: 5 - Production/Stable'
 
-    return classifiers + [dev_status()]
+    return list(classifiers) + [dev_status()]
 
 
 def recursive_glob(path, pattern):
