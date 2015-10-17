@@ -446,7 +446,7 @@ class RemotingService(object):
 
         try:
             fbh = self.opener(http_request)
-        except urllib2.URLError, e:
+        except urllib2.URLError as e:
             if self.logger:
                 self.logger.exception('Failed request for %s', self._root_url)
 
