@@ -1656,7 +1656,7 @@ class ExceptionEncodingTestCase(ClassCacheClearingTestCase, EncoderMixIn):
     def test_exception(self):
         try:
             raise Exception('foo bar')
-        except Exception, e:
+        except Exception as e:
             self.encoder.writeElement(e)
 
         self.assertEqual(
